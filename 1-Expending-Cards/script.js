@@ -1,3 +1,5 @@
+import {axios} from 'module';
+
 const panels = document.querySelectorAll('.panel');
 
 const removeActiveClasses = () => {

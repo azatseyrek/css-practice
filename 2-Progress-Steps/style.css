@@ -86,6 +86,7 @@ body {
   padding: 8px 30px;
   margin: 5px;
   font-size: 14px;
+  cursor: pointer;
 }
 
 .btn:active {
