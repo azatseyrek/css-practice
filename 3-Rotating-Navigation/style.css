@@ -1,7 +1,6 @@
-@import url(https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap);
+@import url('https://fonts.googleapis.com/css?family=Lato&display=swap');
 
 * {
-   padding: 0;
    box-sizing: border-box;
 }
 
@@ -10,10 +9,12 @@ body {
    background-color: #333;
    color: #222;
    overflow-x: hidden;
+   margin: 0;
 }
 
 .container {
    background-color: #fafafa;
+   transform-origin: top left;
    transition: transform 0.5s linear;
    width: 100vw;
    min-height: 100vh;
@@ -22,7 +23,6 @@ body {
 
 .container.show-nav {
    transform: rotate(-20deg);
-   transform-origin: top left;
 }
 
 .circle-container {
@@ -32,12 +32,16 @@ body {
 }
 
 .circle {
-   background-color: #ff7979df;
+   background-color: #ff7979;
    height: 200px;
    width: 200px;
    border-radius: 50%;
    position: relative;
    transition: transform 0.5s linear;
+}
+
+.container.show-nav .circle {
+   transform: rotate(-70deg);
 }
 
 .circle button {
@@ -66,12 +70,18 @@ body {
    transform-origin: top left;
 }
 
+.container.show-nav + nav li {
+   transform: translateX(0);
+   transition-delay: 0.3s;
+}
+
 nav {
    position: fixed;
    bottom: 40px;
    left: 0;
    z-index: 100;
 }
+
 nav ul {
    list-style-type: none;
    padding-left: 30px;
@@ -81,21 +91,34 @@ nav ul li {
    text-transform: uppercase;
    color: #fff;
    margin: 40px 0;
-   /* transform: translateX(-100%); */
+   transform: translateX(-100%);
    transition: transform 0.4s ease-in;
 }
 
-nav ul li {
+nav ul li i {
    font-size: 20px;
    margin-right: 10px;
 }
 
 nav ul li + li {
    margin-left: 15px;
+   transform: translateX(-150%);
 }
 
 nav ul li + li + li {
    margin-left: 30px;
+   transform: translateX(-200%);
+}
+
+nav a {
+   color: #fafafa;
+   text-decoration: none;
+   transition: all 0.5s;
+}
+
+nav a:hover {
+   color: #ff7979;
+   font-weight: bold;
 }
 
 .content img {
